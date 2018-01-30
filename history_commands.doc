@@ -1,0 +1,267 @@
+    1  yum install --enablerepo=epel -y install ansible openssh-clients
+    2  vi /etc/ansible/hosts
+    3  export ANSIBLE_HOSTS=/etc/ansible/hosts
+    4  echo $ANSIBLE_HOSTS
+    5  ssh-keygen
+    6  cd /root/.ssh
+    7  ls -lrt
+    8  cat id_rsa.pub
+    9  ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCe1hFvgl2ZH9aMgdmnP+2lgakMEJhelysobP3VDX7sDSaAPNvMYjYphpFdhX6tIrFS/oWWVbToh9YGMSTnFcbyjt4zS85fCQdNEnmqA0+3IAAq+V/WPvXw4BNusiuXt+Wh0+esQ7Sx7uob5rsSZBN2Pq8YFPpC+NbBNuFQe/Pes3KfLceWl9CyE5pMMKcOUdHvTz4L/CvNJ2ns7Q7vBkiU/yKmQ5DcF/Rqvt3PWRY7MLIm0Z2WW6eELCCQtydZ5SG1cEd6cjyEPhi40Wjl23Tmh/xJFArY2DBJb3GtEECuqJjNigW5XZDM/rBYWmwwqGP3Siqtz2wLLb/HqKcj/Oo5 root@ip-172-31-40-180
+   10  clear
+   11  ansible -m ping webserver
+   12  history
+   13  cat /etc/ansible/hosts
+   14  cd /
+   15  /pwd
+   16  cd /home
+   17  /pwd
+   18  clear
+   19  ls -lrt
+   20  cd ec2-user
+   21  ls -lrt
+   22  ls -a
+   23  mkdir playbooks
+   24  clear
+   25  cd playbooks
+   26  vi sample-playbook1.yml
+   27  ansible-playbook sample-playbook1.yml --syntax-check
+   28  ansible-playbook sample-playbook1.ym
+   29  ansible-playbook sample-playbook1.yml
+   30  clear
+   31  ansible webserver -m command -a "/bin/echo Hello"
+   32  ansible-playbook sample-playbook1.yml
+   33  vi sample-playbook1.yml
+   34  cd /etc/ansible
+   35  ls -lrt
+   36  cd roles
+   37  ls -lrt
+   38  mkdir apache
+   39  cd apache
+   40  ls -lrt
+   41  mkdir tasks handlers templates files vars meta
+   42  echo "---" > {handlers,meta,tasks,vars}/main.yml
+   43  tree apache
+   44  cd ..
+   45  tree apache
+   46  yum install update -y
+   47  yum install tree
+   48  history
+   49  yum install update -y
+   50  yum install tree -y
+   51  tree apache
+   52  cd /etc/ansible/roles
+   53  ls -lrt
+   54  tree apache
+   55  cat apache/tasks/main.yml
+   56  cd handlers
+   57  pwd
+   58  cd apache
+   59  pwd
+   60  clear
+   61  cd handlers
+   62  touch main.yml
+   63  cd ..
+   64  cd tasks
+   65  touch main.yml
+   66  cd ..
+   67  tree apache
+   68  vi apache/tasks/main.yml
+   69  vi apache/handlers/main.yml
+   70  tree apache
+   71  cd /ec2-user/playbooks
+   72  cd /ec2-user/
+   73  cd /home/ec2-user/playbooks
+   74  vi apacheByRoles.yml
+   75  ansible-playbook apacheByRoles.yml --syntax-check
+   76  ansible-playbook apacheByRoles.yml
+   77  history
+   78  vi apache/tasks/main.yml
+   79  pwd
+   80  vi /etc/ansible/roles/apache/tasks/main.yml
+   81  cat /etc/ansible/roles/apache/tasks/main.yml
+   82  cat /etc/ansible/roles/apache/handlers/main.yml
+   83  cat apacheByRoles.yml
+   84  sudo lsof -nPi | grep ":80 (LISTEN)"
+   85  dpkg --get-selections | grep apache
+   86  vi vaultSampleFile.yml
+   87  cat vaultSampleFile.yml 
+   88  ansible-playbook vaultSampleFile.yml [B
+   89  ansible-vault create vaultSampleFile.yml 
+   90  ansible-vault encrypt vaultSampleFile.yml 
+   91  ansible-playbook vaultSampleFile.yml 
+   92  history
+   93  ansible-vault decrypt vaultSampleFile.yml 
+   94  ansible-playbook vaultSampleFile.yml 
+   95  cat vaultSampleFile.yml
+   96  vi vaultSampleFile.yml
+   97  cat vaultSampleFile.yml
+   98  ansible-playbook vaultSampleFile.yml --syntax-check
+   99  ansible-playbook vaultSampleFile.yml
+  100  ansible-valult encrypt vaultSampleFile.yml 
+  101  ansible-vault encrypt vaultSampleFile.yml 
+  102  cat vaultSampleFile.yml
+  103  ansible-playbook vaultSampleFile.yml --ask-vault-pass
+  104  ls -lrt
+  105  rm -rf *.retry
+  106  history
+  107  cd /home/ec2-user/playbooks
+  108  ls -lrt
+  109  chmod -R 600 vaultSampleFile.yml 
+  110  ls -lrt
+  111  ansible-playbook vaultSampleFile.yml --ask-vault-pass
+  112  history
+  113  clear
+  114  cd /home/ec2-user/
+  115  ll
+  116  cd sampletest
+  117  ll
+  118  git status
+  119  git add --all
+  120  git status
+  121  git rm --cached simpletest.txt 
+  122  git status
+  123  git add --all
+  124  git status
+  125  git reset HEAD simpletest.txt 
+  126  git status
+  127  clear
+  128  ll
+  129  git status
+  130  rm 'simpletest.txt' 
+  131  git status
+  132  git reset simpletest.txt
+  133  git status
+  134  clear
+  135  ll
+  136  vi simpletest.txt
+  137  git status
+  138  git add --all
+  139  git status
+  140  git rm --cached simpletest.txt 
+  141  git status
+  142  git reset simpletest.txt 
+  143  git status
+  144  git add --all
+  145  git status
+  146  git reset simpletest.txt 
+  147  git status
+  148  git commit -m "Adding simpletest file"
+  149  git status
+  150  git add --all
+  151  git status
+  152  git commit -m "Adding simpletest file trying again after git add"
+  153  git status
+  154  cat >> simpletest1.txt
+  155  cat >> simpletest2.txt
+  156  git status
+  157  git add --all
+  158  git status
+  159  git commit -a -m "Doing some more once"
+  160  git status
+  161  clear
+  162  git status
+  163  git reset --soft HEAD^
+  164  git status
+  165  cat >> simpletest3.txt
+  166  git status
+  167  git add simpletest3.txt 
+  168  git status
+  169  git reset HEAD simpletest3.txt 
+  170  git status
+  171  history
+  172  git status
+  173  git commit -m "Adding 2 files 1 file left in without git add"
+  174  git status
+  175  git add simpletest3.txt 
+  176  git status
+  177  git commit --amend -m "Adding the remaing 1 file to previous commit - checking purpose"
+  178  clear
+  179  git remote add origin https://github.com/arunkiran/Linuxtest.git
+  180  git push -u origin master
+  181  clear
+  182  git remote add origin git@github.com:arunkiran/Linuxtest.git
+  183  ls -al ~/.ssh
+  184  ssh-keygen -t rsa -b 4096 -C "kiran.arun22@gmail.com"
+  185  ls -al ~/.ssh
+  186  clip < ~/.ssh/id_rsa.pub
+  187  cat ~/.ssh.id_rsa.pub
+  188  cat ~/.ssh/id_rsa.pub
+  189  ssh -T git@github.com
+  190  git remote -v
+  191  clear
+  192  ls -a
+  193  cat >> simpletest4.txt
+  194  ls -lrt
+  195  git status
+  196  git clone git@github.com:arunkiran/Linuxtest.git
+  197  ls -lrt
+  198  cd Linuxtest
+  199  ls -lrt
+  200  clear
+  201  git clone [root@ip-172-31-40-180 sampletest]# ls -a
+  202  .   .git      simpletest1.txt  simpletest3.txt
+  203  ..  hai.java  simpletest2.txt  simpletest.txt
+  204  [root@ip-172-31-40-180 sampletest]# cat >> simpletest4.txt
+  205  creating file before cloning from the github
+  206  [root@ip-172-31-40-180 sampletest]# ls -lrt
+  207  total 24
+  208  -rw-r--r-- 1 root root 109 Jan 30 12:55 hai.java
+  209  -rw-r--r-- 1 root root  30 Jan 30 13:39 simpletest.txt
+  210  -rw-r--r-- 1 root root   6 Jan 30 13:47 simpletest1.txt
+  211  -rw-r--r-- 1 root root   4 Jan 30 13:47 simpletest2.txt
+  212  -rw-r--r-- 1 root root  16 Jan 30 14:00 simpletest3.txt
+  213  -rw-r--r-- 1 root root  45 Jan 30 14:41 simpletest4.txt
+  214  [root@ip-172-31-40-180 sampletest]# git status
+  215  On branch master
+  216  Your branch is up-to-date with 'origin/master'.
+  217  Untracked files:
+  218    (use "git add <file>..." to include in what will be committed)
+  219          simpletest4.txt
+  220  nothing added to commit but untracked files present (use "git add" to track)
+  221  [root@ip-172-31-40-180 sampletest]# git clone git@github.com:arunkiran/Linuxtest.git
+  222  Cloning into 'Linuxtest'...
+  223  remote: Counting objects: 11, done.
+  224  remote: Compressing objects: 100% (5/5), done.
+  225  remote: Total 11 (delta 1), reused 11 (delta 1), pack-reused 0
+  226  Receiving objects: 100% (11/11), done.
+  227  Resolving deltas: 100% (1/1), done.
+  228  [root@ip-172-31-40-180 sampletest]# ls -lrt
+  229  total 28
+  230  -rw-r--r-- 1 root root  109 Jan 30 12:55 hai.java
+  231  -rw-r--r-- 1 root root   30 Jan 30 13:39 simpletest.txt
+  232  -rw-r--r-- 1 root root    6 Jan 30 13:47 simpletest1.txt
+  233  -rw-r--r-- 1 root root    4 Jan 30 13:47 simpletest2.txt
+  234  -rw-r--r-- 1 root root   16 Jan 30 14:00 simpletest3.txt
+  235  -rw-r--r-- 1 root root   45 Jan 30 14:41 simpletest4.txt
+  236  drwxr-xr-x 3 root root 4096 Jan 30 14:43 Linuxtest
+  237  [root@ip-172-31-40-180 sampletest]# cd Linuxtest
+  238  [root@ip-172-31-40-180 Linuxtest]# ls -lrt
+  239  total 20
+  240  -rw-r--r-- 1 root root  30 Jan 30 14:43 simpletest.txt
+  241  -rw-r--r-- 1 root root  16 Jan 30 14:43 simpletest3.txt
+  242  -rw-r--r-- 1 root root   4 Jan 30 14:43 simpletest2.txt
+  243  -rw-r--r-- 1 root root   6 Jan 30 14:43 simpletest1.txt
+  244  -rw-r--r-- 1 root root 109 Jan 30 14:43 hai.java
+  245  clear
+  246  history
+  247  git clone git@github.com:arunkiran/Linuxtest.git preferred-name-instead-of-previous
+  248  ls -lrt
+  249  git pull
+  250  clear
+  251  git branch
+  252  git branch user-profile
+  253  git branch
+  254  git chckout user-profile
+  255  git checkout user-profile
+  256  git checkout master
+  257  git branch
+  258  git merge user-profile
+  259  git branch -d user-profile
+  260  git branch arun
+  261  git checkout arun
+  262  git branch -d arun
+  263  git checkout -b admin-panel
+  264  git branch
+  265  clear
+  266  history
+  267  history > history_commands.doc
